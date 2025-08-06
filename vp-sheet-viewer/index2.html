@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Consolas';
+        }
+
+        html,
+        body {
+            overflow: hidden;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+        }
+
+        #root {
+            width: 100%;
+            height: 100%;
+        }
+
+        .item {
+            display: inline-block;
+            width: 30px;
+            height: 100%;
+            line-height: 50px;
+            color: white;
+            text-align: right;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+
+        }
+
+        #current {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 250px;
+            color: white;
+        }
+
+        .note {
+            float: left;
+            width: 25px;
+            text-align: center;
+            line-height: 25px;
+        }
+
+        .d {
+            float: left;
+            width: 5px;
+            height: 25px;
+            line-height: 25px;
+            border-right: 1px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+    <div id="current">
+
+    </div>
+    <script>
+        let track = [
+            'dgjx',
+            'z',
+            'v',
+            'odkx',
+            'z',
+            'l',
+            'pdhk',
+            'l',
+            'k',
+            'osh',
+            'h',
+            'l',
+            'z',
+            'isjx',
+            'z',
+            'v',
+            'Huax',
+            'zn',
+            'xm',
+            'pzn',
+            'f',
+            'kv',
+            'h',
+            'x',
+            'Jodgz',
+            'Ptfl',
+            'ishjx',
+            'z',
+            'v',
+            'odkx',
+            'z',
+            'l',
+            'pdhk',
+            'l',
+            'z',
+            'odh',
+            'f',
+            'h',
+            'ij',
+            's',
+            'j',
+            'g',
+            'x',
+            'ypdgl',
+            'uak',
+            'dgjx',
+            'z',
+            'v',
+            'odkx',
+            'z',
+            'l',
+            'pdhk',
+            'l',
+            'k',
+            'osh',
+            'h',
+            'l',
+            'z',
+            'isjx',
+            'z',
+            'v',
+            'Huax',
+            'zn',
+            'xm',
+            'pzn',
+            'f',
+            'kv',
+            'h',
+            'x',
+            'Jodgz',
+            'Ptfl',
+            'ishjx',
+            'z',
+            'v',
+            'odkx',
+            'z',
+            'l',
+            'pdhk',
+            'l',
+            'z',
+            'odh',
+            'f',
+            'h',
+            'ij',
+            's',
+            'j',
+            'g',
+            'x',
+            'ypdgl',
+            'uak',
+
+        ];
+        const keyMap = {
+            "1": "C2", "!": "C#2", "2": "D2", "@": "D#2", "3": "E2",
+            "4": "F2", "$": "F#2", "5": "G2", "%": "G#2", "6": "A2",
+            "^": "A#2", "7": "B2", "8": "C3", "*": "C#3", "9": "D3",
+            "(": "D#3", "0": "E3", "q": "F3", "Q": "F#3", "w": "G3",
+            "W": "G#3", "e": "A3", "E": "A#3", "r": "B3", "t": "C4",
+            "T": "C#4", "y": "D4", "Y": "D#4", "u": "E4", "i": "F4",
+            "I": "F#4", "o": "G4", "O": "G#4", "p": "A4", "P": "A#4",
+            "a": "B4", "s": "C5", "S": "C#5", "d": "D5", "D": "D#5",
+            "f": "E5", "g": "F5", "G": "F#5", "h": "G5", "H": "G#5",
+            "j": "A5", "J": "A#5", "k": "B5", "l": "C6", "L": "C#6",
+            "z": "D6", "Z": "D#6", "x": "E6", "c": "F6", "C": "F#6",
+            "v": "G6", "V": "G#6", "b": "A6", "B": "A#6", "n": "B6",
+            "m": "C7", "M": "C#7"
+        };
+        let root = document.getElementById('root');
+        for (let i = 0; i < track.length; i++) {
+            let item = document.createElement('div');
+            item.className = 'item';
+            for (let j = 0; j < track[i].length; j++) {
+                item.innerHTML += "□";
+            }
+            item.dataset.value = track[i];
+            root.appendChild(item);
+        };
+
+
+        setInterval(function (e) {
+            let items = document.getElementsByClassName('item');
+            const animation = items[0].animate(
+                [
+                    { opacity: 1 },
+                    { opacity: 0 }
+                ],
+                {
+                    duration: 1000,
+                    iterations: 1, // 반복 횟수
+                    easing: 'linear',
+                    fill: 'forwards'
+                }
+            );
+
+            animation.onfinish = () => {
+                console.log(items[0].dataset.value);
+                let value = items[0].dataset.value;
+                let array = [];
+                for (let i = 0; i < value.length; i++) {
+                    array.push(keyMap[value.charAt(i)]);
+                }
+                console.log(array);
+                let current = document.getElementById('current');
+                for (let i = 0; i < array.length; i++) {
+                    let note = document.createElement('div');
+                    note.className = 'note';
+                    note.innerHTML = array[i];
+                    current.appendChild(note);
+                    note.animate(
+                        [
+                            { opacity: 0 },
+                            { opacity: 1 }
+                        ],
+                        {
+                            duration: 1000,
+                            iterations: 1, // 반복 횟수
+                            easing: 'linear',
+                            fill: 'forwards'
+                        }
+
+                    );
+                }
+                let d = document.createElement('div');
+                d.className = 'd';
+                d.animate(
+                    [
+                        { opacity: 0 },
+                        { opacity: 1 }
+                    ],
+                    {
+                        duration: 1000,
+                        iterations: 1, // 반복 횟수
+                        easing: 'linear',
+                        fill: 'forwards'
+                    }
+
+                );
+                current.appendChild(d);
+                items[0].remove();
+            };
+        }, 1000);
+    </script>
+</body>
+
+</html>
