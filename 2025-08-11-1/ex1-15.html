@@ -5,11 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>순서 목록</title>
+    <style>
+        ol {
+            list-style-type: lower-alpha;
+        }
+
+        ol li::marker {
+            color: blue;
+            background-color: chartreuse;
+        }
+    </style>
 </head>
 
 <body>
     <h1>반응형 웹 퍼블리싱 학습 순서</h1>
-    <ol>        
+    <ol>
         <li>html</li>
         <li>css</li>
         <li>javascript</li>
