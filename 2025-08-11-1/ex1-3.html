@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>블록 레벨 요소와 인라인 요소</title>
+</head>
+
+<body>
+    <!--인라인 요소에는 일반적으로 블록 레벨 요소가 자식으로 올 수 없음-->
+    <!--블락 요소에는 인라인 요소가 자식으로 올 수 있음-->
+    <!-- https://validator.w3.org/nu/#file -->
+    <!--
+        Error: Element h1 not allowed as child of
+        element span in this context. 
+        (Suppressing further errors from this subtree.)
+        원소 h1은 다음의 자식으로 허용되지 않습니다
+    이 문맥에서 요소 범위.
+    (이 하위 트리에서 발생하는 추가 오류를 억제합니다.)
+     -->
+    <!-- 피닉스 코드에서 오류 보여줌, 메모장은 오류 볼 수 없음-->
+    <span>
+        <h1>블록 레벨 요소</h1>
+    </span>
+    <h1>
+        <span>블록 레벨 요소</span>
+    </h1>
+    <h1>
+        <h1>test1</h1>
+    </h1>
+    <span>
+        <span>test2</span>
+    </span>
+</body>
+
+</html>
