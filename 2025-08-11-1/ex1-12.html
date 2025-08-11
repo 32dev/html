@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image map</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <img src="../01 markup/images/map.jpg" alt="웹도서관" usemap="#library">
+    <map name="library">
+
+        <area shape="rect" coords="48,10,290,132" href="https://www.naver.com" alt="A관" target="_blank">
+        <area shape="rect" coords="313,10,474,278" href="https://www.daum.net" alt="B관" target="_blank">
+        <area shape="rect" coords="47,197,208,278" href="https://www.google.co.kr" alt="C관" target="_blank">
+    </map>
+    <img src="../01 markup/images/logo.png" alt="logo" usemap="#logo">
+    <map name="logo">
+        <area shape="circle" coords="50,50,50" alt="logo" href="https://www.naver.com">
+    </map>
+    <img src="../01 markup/images/whitestar.jpg" alt="whitestar" usemap="#whitestar">
+    <map name="whitestar">
+        <area shape="poly" coords="13,16,5,164,93,139,80,31" alt="whitestar" href="https://www.naver.com">
+    </map>
+</body>
+
+</html>
