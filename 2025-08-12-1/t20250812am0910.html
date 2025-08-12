@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 페이지</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 1px;
+        }
+
+        body {
+            background-color: black;
+
+        }
+
+        th {
+            text-align: left;
+            font-weight: 400;
+            font-family: 'Consolas';
+            background-color: black;
+            color: white;
+            width: 25px;
+        }
+
+        input {
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            border-radius: 0;
+            outline: none;
+            height: 25px;
+            width: 150px;
+        }
+
+        input:focus {
+            border-radius: 0;
+            outline: none;
+        }
+
+        .button {
+            width: 54px;
+            height: 54px;
+        }
+
+        table,
+        tr,
+        td {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="get" action="login.jsp">
+        <fildset>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <td><input type="text" name="id" size="10" /></td>
+                    <td rowspan="2"><input class="button" type="submit" value="로그인"></td>
+                    <td rowspan="2"><input class="button" type="reset" value="취소"></td>
+                </tr>
+                <tr>
+                    <th>PW</th>
+                    <td><input type="password" name="pw" size="10" /></td>
+                </tr>
+            </table>
+        </fildset>
+    </form>
+
+    <form method="get" action="login.jsp">
+        <fildset>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <td><input type="text" name="id" size="10" /></td>
+                </tr>
+                <tr>
+                    <th>PW</th>
+                    <td><input type="password" name="pw" size="10" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;">
+                        <input class="button" style="height:30px;" type="submit" value="로그인">
+                        <input class="button" style="height:30px;" type="reset" value="취소">
+                    </td>
+                </tr>
+            </table>
+        </fildset>
+    </form>
+</body>
+
+</html>
